@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Easy Delivery</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #ff6a00;
+      color: white;
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .checkout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+
+    .box h2 {
+      margin-bottom: 18px;
+      font-size: 21px;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #ff6a00;
+    }
+
+    .payment-option {
+      border: 1px solid #ddd;
+      padding: 14px;
+      border-radius: 7px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .payment-option input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .payment-option:hover {
+      border-color: #ff6a00;
+    }
+
+    .product {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+
+    .product img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-info h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .product-info p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0;
+    }
+
+    .total {
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .place-order {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 7px;
+      background: #ff6a00;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .place-order:hover {
+      background: #e85d00;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .empty a {
+      display: inline-block;
+      margin-top: 15px;
+      background: #ff6a00;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 800px) {
+      .checkout {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🛍️ Easy Delivery</div>
+  <a href="cart.html">← Back to Cart</a>
+</header>
+
+<div class="container">
+
+  <h1>Checkout</h1>
+
+  <div id="checkoutArea"></div>
+
+</div>
+
+<script>
+
+  const cart = JSON.parse(localStorage.getItem("easyDeliveryCart")) || [];
+
+  const checkoutArea = document.getElement
